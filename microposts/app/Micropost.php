@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Micropost extends Model
 {
-    protected $fillable = ['content', 'user_id'];
+    protected $fillable = ['content','image_file','user_id'];
 
     public function user()
     {
@@ -15,6 +15,7 @@ class Micropost extends Model
     
     public function favorite_user()
     {
-        return $this->belongsToMany(User::class, 'micropost_favorite','micropost_id','user_id')->withTimestamps();
+        return $this->belongsToMany(User::class,'micropost_favorite','micropost_id','user_id')->withTimestamps();
     }
+    
 }

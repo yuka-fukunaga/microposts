@@ -43,3 +43,6 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::resource('microposts', 'MicropostsController', ['only' => ['store', 'destroy']]);
 });
+
+Route::post('upload', 'MicropostsController@upload')->name('upload');
+Route::get('/', 'MicropostsController@index');
